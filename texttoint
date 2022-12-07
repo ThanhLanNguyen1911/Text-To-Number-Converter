@@ -1,0 +1,47 @@
+//developed by Nguyen Thanh Lan
+//email: lantramnamcodon@gmail.com
+//conversion library to convert ascii or text numbers into either integer or float data type for parsing.
+//it contains two functions,include texti(input,prefix) and textf(input,prefix),texti is for integer and textf is for float.
+//input is the number in text form,and prefix is the word(1 byte) that is desired to be removed from the numbers.
+//if you have a prefix which is a multiple words within a string,you can simply pass the last character of it.
+//example: "prefix123" texti("prefix123",'x')
+//the function should return the value 123.
+//if the ascii number is negative,you don't need to pass any specific character to the prefix parameter.
+
+int texti(std::string t,char remove){ // ascii to int
+int p=0;
+int n=1;
+for (int i=t.size();i>0;i--){
+if (t[i-1]=='-'){
+p*=-1;
+break;
+}
+else if (t[i-1]==remove){
+break;
+}
+p+=(t[i-1]-48)*n;
+n*=10;
+}
+return p;
+}
+float textf(std::string t,char remove){ // ascii to float
+float p=0;
+int n=1;
+for (int i=t.size();i>0;i--){
+if (t[i-1]=='.'||t[i-1]==','){
+p/=n;
+n=1;
+i-=1;
+}
+else if (t[i-1]=='-'){
+p*=-1;
+break;
+}
+else if (t[i-1]==remove){
+break;
+}
+p+=(t[i-1]-48)*n;
+n*=10;
+}
+return p;
+}
