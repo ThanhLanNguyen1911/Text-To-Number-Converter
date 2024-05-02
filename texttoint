@@ -1,6 +1,5 @@
 //developed by Nguyen Thanh Lan
-//email: lantramnamcodon@gmail.com
-//conversion library to convert ascii or text numbers into either integer or float data type for parsing.
+//Small group of functions to convert ascii or text numbers into either integer or float data type for parsing.
 //it contains two functions,include texti(input,prefix) and textf(input,prefix),texti is for integer and textf is for float.
 //input is the number in text form,and prefix is the word(1 byte) that is desired to be removed from the numbers.
 //if you have a prefix which is a multiple words within a string,you can simply pass the last character of it.
